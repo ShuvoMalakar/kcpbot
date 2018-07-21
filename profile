@@ -1,1 +1,1 @@
-web:gunicorn app:kcpbot
+worker: python kcpbot.py

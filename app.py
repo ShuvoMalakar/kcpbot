@@ -10,10 +10,10 @@ bot = Bot(ACCESS_TOKEN)
 @app.route('/',methods=['GET'])
 def verify():
 	if request.args.get("hub.mode")=="subscribe" and request.args.get("hub.challenge"):
-		if not request.args.get("hub.verify_token")=="mithun":
-			return "verification token matched shuvo"
-		return request.args["hub.challenge"],777
-	return "Welcome to Kcp_Bot"
+		if not request.args.get("hub.verify_token")=="shuvo":
+			return "verification token matched shuvo",403
+		return request.args["hub.challenge"],200
+	return "Welcome to Kcp_Bot",200
 	
 	
 
@@ -33,7 +33,7 @@ def webhook():
 						messagetxt='no text'
 					response=messagetxt
 					bot.send_text_message(sender_id,response)
-	return "Ok mithun"
+	return "Ok",200
 	
 	
 def log(message):
